@@ -2,6 +2,7 @@
 SELECT * 
 FROM world_life_expectancy;
 
+
 ###Find MIN, MAX of Life Expectancy, Life_Increase in 15 Years
 SELECT Country, MIN(`Life expectancy`), MAX(`Life expectancy`),
 ROUND(MAX(`Life expectancy`) - MIN(`Life expectancy`),1) AS Life_Increase_15_Years
@@ -10,6 +11,7 @@ GROUP BY Country
 HAVING MIN(`Life expectancy`) <> 0
 AND MAX(`Life expectancy`) <> 0
 ORDER BY Life_Increase_15_Years ASC;
+
 
 ### Find Average Increase in life expectancy 
 SELECT Year, ROUND(AVG(`Life Expectancy`),2)
@@ -36,7 +38,6 @@ CASE
     ELSE 0
 END High_GDP_Count
 FROM world_life_expectancy;
-
 
 SELECT 
 SUM(CASE WHEN GDP >= 1500 THEN 1 ELSE 0 END) High_GDP_Count,
